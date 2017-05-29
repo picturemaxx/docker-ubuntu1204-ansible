@@ -19,8 +19,7 @@ RUN apt-add-repository -y ppa:ansible/ansible \
     && touch -m -t 200101010101.01 /var/lib/apt/lists \
     && apt-get clean
 
-RUN pip install ansible-lint
-RUN pip install testinfra
+RUN pip install ansible-lint testinfra
 
 # Install Ansible inventory file
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
