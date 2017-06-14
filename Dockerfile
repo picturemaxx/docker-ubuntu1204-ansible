@@ -6,7 +6,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        software-properties-common \
        python-software-properties \
-       python-pip \
+       python-pip net-tools \
     && rm -rf /var/lib/apt/lists/* \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
@@ -22,6 +22,7 @@ RUN apt-add-repository -y ppa:ansible/ansible \
 
 
 RUN pip install --upgrade pip
+RUN pip install --upgrade pytest
 RUN pip install ansible-lint testinfra
 
 # Install Ansible inventory file
