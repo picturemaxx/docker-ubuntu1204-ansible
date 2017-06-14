@@ -23,7 +23,8 @@ RUN apt-add-repository -y ppa:ansible/ansible \
 
 RUN pip install --upgrade pip
 RUN pip install --upgrade pytest
-RUN pip install ansible-lint testinfra
+RUN pip install --upgrade testinfra
+RUN pip install ansible-lint
 
 # Install Ansible inventory file
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
